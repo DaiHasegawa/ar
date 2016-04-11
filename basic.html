@@ -53,7 +53,7 @@
 	//////////////////////////////////////////////////////////////////////////////////
 	//		Test if the browser support WebGL and getUserMedia
 	//////////////////////////////////////////////////////////////////////////////////
-	;(function(){
+	(function(){
 		// TODO backport those 2 in Detector.js
 		var hasGetUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia) ? true : false
 		var hasMediaStreamTrackSources = MediaStreamTrack.getSources ? true : false
