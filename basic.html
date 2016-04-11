@@ -146,7 +146,7 @@
 	document.body.appendChild( renderer.domElement );
 
 	// array of functions for the rendering loop
-	var onRenderFcts = [];
+	var onRenderFunctions = [];
 
 	// init scene and camera
 	var scene = new THREE.Scene();
@@ -200,7 +200,7 @@
 
 
 	// render the scene
-	onRenderFcts.push(function(){
+	onRenderFunctions.push(function(){
 		renderStats.begin();
 		if( webglRenderEnabled === true ){
 			renderer.render( scene, camera );
@@ -214,7 +214,7 @@
 
 		requestAnimationFrame( animate );
 
-		onRenderFcts.forEach(function(onRenderFct){
+		onRenderFunctions.forEach(function(onRenderFct){
 			onRenderFct(now, now - previousTime)
 		});
 
@@ -242,7 +242,7 @@
 	}else if( location.hash === '#image' ){
 		var videoGrabbing = new THREEx.ImageGrabbing();
 		jsArucoMarker.videoScaleDown = 10
-	}else console.assert(false);
+	}else console.assert(false)
 
 	// attach the videoGrabbing.domElement to the body
         document.body.appendChild(videoGrabbing.domElement);
@@ -253,7 +253,7 @@
 	// set the markerObject3D as visible
 	markerObject3D.visible	= false;
 	// process the image source with the marker recognition
-	onRenderFcts.push(function(){
+	onRenderFunctions.push(function(){
 		if( detectMarkersEnabled === false )	return;
 
 		var domElement	= videoGrabbing.domElement;
