@@ -1,0 +1,26 @@
+{
+  "name": "ar",
+  "homepage": "https://github.com/DaiHasegawa/ar",
+  "authors": [
+    "Dai Hasegawa <daihasg@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "three.js": "threejs#*",
+    "threex.webar": "*"
+  }
+}
