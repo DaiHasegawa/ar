@@ -172,20 +172,38 @@
 		var mesh = new THREE.Mesh(geometry, material);
 		markerObject3D.add( mesh );
 
-		var mesh = new THREE.AxisHelper;
-		markerObject3D.add( mesh );
-	})()
-
-	// add a awesome logo to the scene
-	;(function(){
-		var material = new THREE.SpriteMaterial({
-			map: THREE.ImageUtils.loadTexture( 'images/awesome.png' ),
-		});
-		var geometry = new THREE.BoxGeometry(1,1,1);
-		var object3d = new THREE.Sprite(material );
-		object3d.scale.set( 2, 2, 1 );
-		markerObject3D.add(object3d)
+		var meshAxisHelper = new THREE.AxisHelper;
+		markerObject3D.add( meshAxisHelper );
 	})();
+
+	// add cube to the scene
+	(function(){
+    var geometry = new THREE.BoxGeometry( 0.3, 0.3, 0.3 );
+    var material = new THREE.MeshPhongMaterial( { color: '#fff000' } );
+    var cube = new THREE.Mesh( geometry, material );
+    cube.position.set(0, 0, 0.15);
+		markerObject3D.add( cube );
+    onRenderFunctions.push(function(now, delta){
+      cube.rotation.z += 0.01;
+    });
+	})();
+
+  // add light
+  (function(){
+    // ambient
+    var ambientLight = new THREE.AmbientLight(0xffffff, 0.02);
+    scene.add( ambientLight );
+    // directional
+    var directionalLight = new THREE.DirectionalLight('#ffffff', 0.1);
+    directionalLight.position.set(30, 10, 10);
+    scene.add(directionalLight);
+    // spotlight
+    var spotLight = new THREE.SpotLight(0xffffff, 0.9);
+    onRenderFunctions.push(function(now, delta){
+      spotLight.position.set( camera.position.x, camera.position.y, camera.position.z );
+    });
+    scene.add( spotLight );
+  })();
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		render the whole thing on the page
