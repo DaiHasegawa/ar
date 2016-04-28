@@ -20,7 +20,8 @@
   ],
   "dependencies": {
     "jquery": "^2.2.3",
-    "three.js": "threejs#*",
+    "three.js": "^0.76.0",
+    "stats.js": "*",
     "threex.webar": "*"
   }
 }
