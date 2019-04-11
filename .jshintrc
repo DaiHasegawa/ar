@@ -1,8 +1,0 @@
-{
-  "indent": 2,
-  "globals": {
-    "THREE": true
-  },
-  "jquery": true,
-  "browser": true
-}
