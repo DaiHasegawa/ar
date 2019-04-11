@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- include three.js -->
-<script src='bower_components/three.js/build/three.js'></script>
-<script src='bower_components/three.js/examples/js/libs/stats.min.js'></script>
+<script src='bower_components/three.js/three.js'></script>
+<script src='bower_components/stats.js/build/stats.js'></script>
 
 <!-- include js-aruco -->
 <script src='bower_components/threex.webar/vendor/js-aruco/svd.js'></script>
@@ -55,7 +55,7 @@
 	(function(){
 		// TODO backport those 2 in Detector.js
 		var hasGetUserMedia = (navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia) ? true : false;
-		var hasMediaStreamTrackSources = MediaStreamTrack.getSources ? true : false;
+		var hasMediaStreamTrackSources = navigator.mediaDevices.enumerateDevices? true : false;
 		var hasWebGL = ( function () { try { var canvas = document.createElement( 'canvas' ); return !! ( window.WebGLRenderingContext && ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ) ); } catch ( e ) { return false; } } )();
 
 		if( hasWebGL === false ){
